@@ -4,7 +4,7 @@ const randomizeButton = document.getElementById('randomize');
 const img = document.getElementById('poster-image');
 const title = document.getElementById('poster-title');
 const quote = document.getElementById('poster-quote');
-
+const submitButton = document.getElementById('submit');
 
 // Array of predefined poster objects
 const posters = [
@@ -53,13 +53,29 @@ const posters = [
     event.preventDefault();
   
     // TODO: Retrieve the entered quote and author from the input fields
-  
+    const customImg = document.getElementById('poster-form-image').value;
+    const customTitle = document.getElementById('poster-form-title').value;
+    const customQuote = document.getElementById('poster-form-quote').value;
+    
     // TODO: Create a custom poster object with the entered values
+    const customPoster = 
+        {
+            image: customImg,
+            title: customTitle,
+            quote: customQuote
+
+        };
   
     // TODO: Call the function to update the DOM with the values from the custom poster object
+    updatePoster(customPoster);
   }
   
   // Function to update the poster content in the DOM
-  function updatePoster(imageUrl, title, quote) {
+  function updatePoster(custom_Poster) {
     // TODO: Update the DOM with the values provided for the poster image, title, and quote
+    posters.push(custom_Poster);
+    
   }
+
+// Add event listener submit button
+submitButton.addEventListener('click', generateCustomPoster);
